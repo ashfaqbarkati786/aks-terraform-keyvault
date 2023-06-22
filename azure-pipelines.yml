@@ -59,7 +59,7 @@ stages:
         kubectl apply -f deployments/webapp-service.yaml
         kubectl apply -f deployments/db-deployment.yaml
         kubectl apply -f deployments/db-service.yaml
-      displayName: 'Replace Environment Variables & Deploy to AKS Cluster'
+      displayName: 'Replace Environment Variables and Deploy to AKS Cluster'
 
     
 
