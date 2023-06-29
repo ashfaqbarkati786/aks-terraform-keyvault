@@ -57,6 +57,7 @@ stages:
         export IMAGE_TAG=$(Build.BuildId)
         envsubst '${IMAGE_TAG}' < deployments/webapp-deployment.yaml > deployments/webapp-deployment-modified.yaml
         kubectl apply -f deployments/webapp-deployment-modified.yaml
+        kubectl apply -f deployments/secretsproviderclass.yaml
         kubectl apply -f deployments/webapp-service.yaml
         kubectl apply -f deployments/db-deployment.yaml
         kubectl apply -f deployments/db-service.yaml
