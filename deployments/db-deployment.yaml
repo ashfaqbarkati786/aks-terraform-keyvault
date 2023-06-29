@@ -19,20 +19,30 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: db-credentials
-              key: MYSQL_ROOT_PASSWORD
+              name: mysql-secrets
+              key: root-password
         - name: MYSQL_DATABASE
           value: sampledb
         - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
-              name: db-credentials
-              key: MYSQL_USER
+              name: mysql-secrets
+              key: username
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: db-credentials
-              key: MYSQL_PASSWORD
+              name: mysql-secrets
+              key: user-password
         ports:
         - containerPort: 3306
           name: db
+        volumeMounts:
+        - name: secrets-store
+          mountPath: /mnt/secrets-store
+      volumes:
+      - name: secrets-store
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: azure-kvname
