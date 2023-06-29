@@ -13,27 +13,35 @@ spec:
         app: webapp
     spec:
       containers:
-        - name: webapp-container
-          image: ashfaqbarkati786/key:${IMAGE_TAG}
-          ports:
-            - containerPort: 80
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-credentials
-                  key: MYSQL_ROOT_PASSWORD
-            - name: MYSQL_HOST
-              value: db-service
-            - name: MYSQL_USER
-              valueFrom:
-                secretKeyRef:
-                  name: db-credentials
-                  key: MYSQL_USER
-            - name: MYSQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-credentials
-                  key: MYSQL_PASSWORD
-            - name: MYSQL_DATABASE
-              value: sampledb
+      - name: webapp
+        image: ashfaqbarkati786/flask1
+        ports:
+        - containerPort: 80
+          name: webapp
+        env:
+        - name: DB_HOST
+          value: db-deployment
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: sampledb
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: user-password
+        volumeMounts:
+        - name: secrets-store
+          mountPath: /mnt/secrets-store
+      volumes:
+      - name: secrets-store
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: azure-kvname
