@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: ashfaqbarkati786/flask1
+        image: ashfaqbarkati786/key:${IMAGE_TAG}
         ports:
         - containerPort: 80
           name: webapp
