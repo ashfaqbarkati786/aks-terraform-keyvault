@@ -36,6 +36,7 @@ The project is structured as follows:
 - **Cloud Watch:** Monitoring and logging for the entire pipeline and for services like Glue Crawler, Glue Job, Lambda functions, VPC, Glue connection & Code Commit. 
 - **SNS:** Simple Notification Service for handling notifications. 
 - **S3:** Storage for input datasets, ETL script and transformed output data.
+  
  ![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/8fc821c1-170a-4a4a-85db-700ff04740c3)
 
 
@@ -74,10 +75,16 @@ The project follows a continuous integration and continuous deployment (CI/CD) p
 - **Build:** Uses Code Build to build and package the code. 
 - **Deploy:** Moves the transformed data to the output S3 bucket. 
 - **Notification:** Sends notifications via SNS for successful or failed pipeline execution.
+Architecture of CI/CD
 ![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/cff6aea5-e00b-4e0c-b696-96bc806a3f81) 
-
-1. AWS CodeCommit  is a Version Control Service hosted by AWS, to store the Terraform code. This is similar to Github
-2. 
+**legend**
+ 1. AWS CodeCommit  is a Version Control Service hosted by AWS, to store the Terraform code. This is similar to Github
+ 2. AWS codepipline : AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.
+ 3. Buildspec File : A buildspec is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build.
+ 4. AWS Codebuild : AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces ready-to-deploy software packages.
+ 5. Resources : After the pipeline execution,Terraform have deployed this resources per envirenment.
+ 6. After successfull deployment in the dev environment we will be promoting the changes to prod environment having Manual approval in place.
+ 7. TF State Files : We are storing the Terraform statefiles to S3 bucket
 
 ## Input File Location 
 
