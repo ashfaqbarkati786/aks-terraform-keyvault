@@ -43,21 +43,21 @@ The project is structured as follows:
 ## **Folder Structure**
 - **`Deployments`**: Repository
   - **`dev/`**: Development environment directory.
-    - **`output.tf`**: terraform file
-    - **`provider.tf`**: terraform file
-    - **`variable.tf`**: terraform file
-    - **`backend.tf`**: terraform file
-    - **`main.tf`**: terraform file
-
+    - **`output.tf`**: Terraform file providing outputs for the resources.
+    - **`provider.tf`**: Terraform file defining the cloud provider used for deployment.
+    - **`variable.tf`**: Terraform file defining variables utilized in the `main.tf` file.
+    - **`backend.tf`**: Terraform file containing code to centralize the state files.
+    - **`main.tf`**: Main Terraform file responsible for orchestrating deployments and creating the infrastructure.
+      
   - **`files/`**: directory.
     - `python.py`: Python file for ETL transformation operations that may be used across environments.
 
   - **`prod/`**: Production environment directory.
-    - **`output.tf`**: terraform file
-    - **`provider.tf`**: terraform file
-    - **`variable.tf`**: terraform file
-    - **`backend.tf`**: terraform file
-    - **`main.tf`**: terraform file
+    - **`output.tf`**
+    - **`provider.tf`**
+    - **`variable.tf`**
+    - **`backend.tf`**
+    - **`main.tf`**
       
 
 ## Change Management
