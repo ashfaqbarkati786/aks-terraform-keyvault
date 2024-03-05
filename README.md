@@ -37,7 +37,7 @@ The project is structured as follows:
 - **SNS:** Simple Notification Service for handling notifications. 
 - **S3:** Storage for input datasets, ETL script and transformed output data.
   
- ![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/8fc821c1-170a-4a4a-85db-700ff04740c3)
+ 
 
 ## Branching Startegy
 
@@ -89,11 +89,11 @@ The project follows a continuous integration and continuous deployment (CI/CD) p
  6. After successfull deployment in the dev environment we will be promoting the changes to prod environment having Manual approval in place.
  7. TF State Files : We are storing the Terraform statefiles to S3 bucket
 
-## Input File Location 
+## Source File Location 
 
 The initial datasets for processing are stored in the specified input S3 bucket as defined in the project configuration. Access the input files at `s3://path_to_directory/input/`.  
 
-## Output File Location 
+## Destination File Location 
 
 The transformed data is stored in the output S3 bucket specified in the project configuration. You can find the output files at `s3://path_to_directory/output/`. 
 
