@@ -8,14 +8,14 @@ Welcome to "Platform Engineering on AWS for the Data Analytics Project." This in
 
 ### What is this Project?
 
-This project aims to automate the data flow by implementing end-to-end DevOps tooling and methodologies within the AWS cloud for data engineering and analytic projects.
+This project aims to design and implement end-to-end DevOps tooling and methodologies for data engineering and analytics. We aim to streamline the data processing workflow and ensure efficient deployment and monitoring of data-related applications, thereby achieving amalgamation of Data and DevOps also known as DataOps.
 
 ### Why Do We Need This?
 
 The project addresses the complexities of data processing, ensuring high-quality insights and accelerating time-to-insight. By streamlining operations, optimizing costs, and enhancing security and compliance, it aligns with our strategic goals and promotes efficient resource management. Proactive monitoring and governance policies further enhance reliability and scalability, empowering us to handle evolving data demands effectively.
 
 - To enhance our operational footprint across diverse cloud providers such as AWS and establish a cloud-agnostic solution for implementing data engineering and analytics projects.
-- Helpful for future projects in analyzing and identifying the right services/tools from AWS based on advantages and drawbacks.
+- Helpful for Cervello/Kearney future projects in analyzing and identifying the right services/tools from AWS based on advantages and drawbacks.
 - Terraform modules that are project-ready, ensuring they are reusable in new projects.
 
 ## Prerequisites 
@@ -27,9 +27,7 @@ To make use of this project, ensure the following requirements are met:
 - Git should be installed on your local machine for repository interactions. 
 
 ## Project Structure 
- 
 The project is structured as follows: 
-
 - The data transformation script and Terraform module for infrastructure deployment have been pushed to the AWS Code Commit repository.
 - **Code Build:** Code Build is employed to create an agent with specific requirements, facilitating the initiation of Terraform deployment.  
 - **Code Pipeline:** AWS Code Pipeline for orchestrating the data ops pipeline. 
@@ -37,7 +35,31 @@ The project is structured as follows:
 - **Lambda:** Lambda functions are used to automate the process of initiating the AWS Crawler and AWS ETL Job using S3 and CloudWatch events.
 - **Cloud Watch:** Monitoring and logging for the entire pipeline and for services like Glue Crawler, Glue Job, Lambda functions, VPC, Glue connection & Code Commit. 
 - **SNS:** Simple Notification Service for handling notifications. 
-- **S3:** Storage for input datasets, ETL script and transformed output data. 
+- **S3:** Storage for input datasets, ETL script and transformed output data.
+ ![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/8fc821c1-170a-4a4a-85db-700ff04740c3)
+
+
+## **Folder Structure**
+- **`Deployments`**: Repository
+  - **`dev/`**: Development environment directory.
+    - **`output.tf`**: terraform file
+    - **`provider.tf`**: terraform file
+    - **`variable.tf`**: terraform file
+    - **`backend.tf`**: terraform file
+    - **`main.tf`**: terraform file
+
+  - **`files/`**: directory.
+    - `python.py`: Python file for ETL transformation operations that may be used across environments.
+
+  - **`prod/`**: Production environment directory.
+    - **`output.tf`**: terraform file
+    - **`provider.tf`**: terraform file
+    - **`variable.tf`**: terraform file
+    - **`backend.tf`**: terraform file
+    - **`main.tf`**: terraform file
+      
+## Branching Startegy
+
 
 ## Change Management
 
@@ -52,6 +74,10 @@ The project follows a continuous integration and continuous deployment (CI/CD) p
 - **Build:** Uses Code Build to build and package the code. 
 - **Deploy:** Moves the transformed data to the output S3 bucket. 
 - **Notification:** Sends notifications via SNS for successful or failed pipeline execution.
+![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/cff6aea5-e00b-4e0c-b696-96bc806a3f81) 
+
+1. AWS CodeCommit  is a Version Control Service hosted by AWS, to store the Terraform code. This is similar to Github
+2. 
 
 ## Input File Location 
 
