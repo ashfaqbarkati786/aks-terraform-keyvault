@@ -36,12 +36,8 @@ The project is structured as follows:
 - **Cloud Watch:** Monitoring and logging for the entire pipeline and for services like Glue Crawler, Glue Job, Lambda functions, VPC, Glue connection & Code Commit. 
 - **SNS:** Simple Notification Service for handling notifications. 
 - **S3:** Storage for input datasets, ETL script and transformed output data.
-  
- 
-
-## Branching Startegy
-
-![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/0599dfe7-a137-49da-a7dc-4af442c51d66)
+### Project Architecture
+![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/bfbaa441-94ec-4f4d-868c-3c4375bc0377)
 
 
 ## **Folder Structure**
@@ -73,12 +69,12 @@ The project is structured as follows:
 
 The project follows a continuous integration and continuous deployment (CI/CD) process. When changes are pushed to the Code Commit repository, the CI/CD pipeline is triggered. The pipeline includes the following stages: 
 
-- **Source:** Monitors the Code Commit repository for changes. 
-- **Build:** Uses Code Build to build and package the code. 
-- **Deploy:** Moves the transformed data to the output S3 bucket. 
-- **Notification:** Sends notifications via SNS for successful or failed pipeline execution.
+- **Source:** Monitors the Code Commit '**deployments**' repository for changes. 
+- **Build:** Leverage AWS CodeBuild for building the build specification file, and incorporate an agent for deploying Terraform modules to create the necessary infrastructure.
+- **Deploy:** Upload the processed dataset to the designated output Amazon S3 bucket. This involves placing the data that has undergone transformation, originally uploaded for processing, into the specified storage location within the Amazon S3 service.
+- **Notification:** Sends notifications via SNS to email service for successful or failed pipeline execution.
 
-## CI/CD Architecture
+### CI/CD Architecture
 ![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/cff6aea5-e00b-4e0c-b696-96bc806a3f81) 
 **legend**
  1. AWS CodeCommit  is a Version Control Service hosted by AWS, to store the Terraform code. This is similar to Github
