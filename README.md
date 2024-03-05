@@ -1,11 +1,21 @@
 # Platform Engineering on AWS for Data Analytics Projects
 
-## Table of Contents
-- [introduction](#introduction)
-- [Project Overview](#project overview)
-- 
+# Table of Contents
+
+- [Introduction](#introduction)
+- [Project Overview](#project-overview)
+  - [What is this project?](#what-is-this-project)
+  - [Why do we need this?](#why-do-we-need-this)
+- [Prerequisites](#prerequisites)
+- [Project Structure](#project-structure)
+  - [Project Architecture](#project-architecture)
+- [Folder Structure](#folder-structure)
+- [Change Management](#change-management)
+- [CI/CD Process](#cicd-process)
+- [Source File Location](#source-file-location)
+- [Destination File Location](#destination-file-location)
 - [Usage](#usage)
-- 
+
 
 
 ## Introduction:
@@ -48,7 +58,7 @@ The project is structured as follows:
 ![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/bfbaa441-94ec-4f4d-868c-3c4375bc0377)
 
 
-## **Folder Structure**
+## Folder Structure
 - **`Deployments`**: Repository
   - **`dev/`**: Development environment directory.
     - **`output.tf`**: Terraform file providing outputs for the resources.
