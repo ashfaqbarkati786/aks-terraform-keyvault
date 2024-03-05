@@ -1,5 +1,11 @@
 # Platform Engineering on AWS for Data Analytics Projects
 
+## Table of Contents
+- [introduction](#introduction)
+- [Usage](#usage)
+- 
+
+
 ## Introduction:
 
 Welcome to "Platform Engineering on AWS for the Data Analytics Project." This initiative serves as a comprehensive toolkit, facilitating the deployment of infrastructure resources through Terraform modules and the execution of ETL (Extract, Transform, Load) operations using a Python script.
