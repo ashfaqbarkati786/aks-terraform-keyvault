@@ -39,6 +39,10 @@ The project is structured as follows:
   
  ![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/8fc821c1-170a-4a4a-85db-700ff04740c3)
 
+## Branching Startegy
+
+![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/0599dfe7-a137-49da-a7dc-4af442c51d66)
+
 
 ## **Folder Structure**
 - **`Deployments`**: Repository
@@ -59,8 +63,6 @@ The project is structured as follows:
     - **`backend.tf`**: terraform file
     - **`main.tf`**: terraform file
       
-## Branching Startegy
-
 
 ## Change Management
 
@@ -75,7 +77,8 @@ The project follows a continuous integration and continuous deployment (CI/CD) p
 - **Build:** Uses Code Build to build and package the code. 
 - **Deploy:** Moves the transformed data to the output S3 bucket. 
 - **Notification:** Sends notifications via SNS for successful or failed pipeline execution.
-Architecture of CI/CD
+
+## CI/CD Architecture
 ![image](https://github.com/ashfaqbarkati786/aks-terraform-keyvault/assets/107784646/cff6aea5-e00b-4e0c-b696-96bc806a3f81) 
 **legend**
  1. AWS CodeCommit  is a Version Control Service hosted by AWS, to store the Terraform code. This is similar to Github
